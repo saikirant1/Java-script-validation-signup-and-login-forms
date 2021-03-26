@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Signup Form</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+	<script type="text/javascript">
+		function myFunction(){
+			var firstpassword=document.myform.password.value;  
+			var secondpassword=document.myform.cpassword.value; 
+			var num=document.myform.num.value; 
+			  
+			if(firstpassword!=secondpassword || firstpassword.length<6){  
+			alert("password not match! or length less than 6");  
+			 document.myform.password.focus() ;
+			return false;  
+			}  
+			
+			 
+			 
+			if (isNaN(num)){  
+			  alert("Ph no contains num only");
+			   document.myform.num.focus() ;
+			  return false;  
+			  }
+			  
+			 if(num.length<10){
+			 alert("ph no should be 10 num");
+			 document.myform.num.focus() ;
+			 return false;
+			 }			  
+			 
+			var x=document.myform.email.value;  
+			var atposition=x.indexOf("@");  
+			var dotposition=x.lastIndexOf(".");  
+			if (atposition<1 || dotposition<atposition+2 || dotposition+2>=x.length){  
+			  alert("Please enter a valid e-mail address \n atpostion:"+atposition+"\n dotposition:"+dotposition);  
+			  return false;  
+			 document.myform.email.focus() ;
+			  }  
+			return(true);
+			 
+			
+		}
+	</script>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 offset-md-4 form">
+                <form name ="myform" action="login-user.html"  onsubmit="return myFunction()">
+                    <h2 class="text-center">Signup Form</h2>
+                    <p class="text-center">It's quick and easy.</p>
+                    <div class="form-group">
+                        <input class="form-control" type="text" name="name" placeholder="Full Name" required value>
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control" type="num" name="num"  placeholder="Phone" required value><span id="numloc"></span>
+                    </div>
+					<div class="form-group">
+                        <input class="form-control" type="email" name="email" placeholder="Email Address" required value>
+                    </div>
+					
+                    <div class="form-group">
+                        <input class="form-control" type="password" name="password" placeholder="Password" required>
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control" type="password" name="cpassword" placeholder="Confirm password" required>
+                    </div>
+					 <div class="form-group" required value>
+						  <p>Gender</p>
+						  <input type="radio" id="male" name="gender" value="male" required value>
+                          <label for="male">Male</label>
+                          <input type="radio" id="female" name="gender" value="female">
+                          <label for="female">Female</label>
+                    </div>
+                    <div class="try">
+                        <a href="login-user.html"><input class="form-control button" type="submit" name="signup" value="Signup"></a>
+                    </div>
+                    <div class="link login-link text-center">Already a member? <a href="login-user.html">Login here</a>  or    <a href="index.html">Home</a></div>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>
